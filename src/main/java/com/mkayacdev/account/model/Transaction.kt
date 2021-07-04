@@ -21,10 +21,14 @@ data class Transaction (
 
     )
 {
-        constructor(customer: Customer, balance: BigDecimal, creationDate: LocalDateTime) : this(
-                customer = customer,
-                balance = balance,
-                creationDate = creationDate
+        constructor(amount: BigDecimal,account: Account) : this(
+               id = null,
+                amount = amount,
+                transactionDate = LocalDateTime.now(),
+                transactionType =TransactionType.INITIAL,
+                account = account
+
+
         )
 
 

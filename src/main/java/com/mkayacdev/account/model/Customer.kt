@@ -8,7 +8,7 @@ data class Customer(
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",strategy = "UUIDGenerator")
-    val id: String?,
+    val id: String? ,
 
     val name: String?,
     val surname: String?,
