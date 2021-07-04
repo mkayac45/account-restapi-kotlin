@@ -21,7 +21,7 @@ public class TransactionService {
         this.transactionRepository = transactionRepository;
     }
 
-    protected Transaction initiateMoney(final Account account, CreateAccountRequest amount){
+    protected Transaction initiateMoney(final Account account, BigDecimal amount){
 
         return transactionRepository.save(
                 new Transaction(amount,account)
