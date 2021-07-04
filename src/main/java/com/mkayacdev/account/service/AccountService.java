@@ -35,7 +35,7 @@ public class AccountService {
                 LocalDateTime.now()
                 );
         if(createAccountRequest.getInitialCredit().compareTo(BigDecimal.ZERO)> 0){
-            Transaction transaction = transactionService.initiateMoney(account,createAccountRequest.getInitialCredit());
+            Transaction transaction = new Transaction(createAccountRequest.getInitialCredit(),account);
             account.getTransaction().add(transaction);
         }
 

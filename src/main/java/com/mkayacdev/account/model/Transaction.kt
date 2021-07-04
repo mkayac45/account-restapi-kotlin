@@ -9,7 +9,7 @@ import javax.persistence.*
 data class Transaction (
         @Id
         @GeneratedValue(generator = "UUID")
-        @GenericGenerator(name = "UUID",strategy = "UUIDGenerator")
+        @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
         val id: String?,
         val transactionType: TransactionType? = TransactionType.INITIAL,
         val amount: BigDecimal?,

@@ -8,7 +8,7 @@ import javax.persistence.*
 data class Account(
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID",strategy = "UUIDGenerator")
+    @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
     val id: String? = "",
     val balance: BigDecimal? = BigDecimal.ZERO,
     val creationDate: LocalDateTime,
@@ -17,7 +17,7 @@ data class Account(
     @JoinColumn(name = "customer_id",nullable = false)
     val customer:Customer?,
 
-    @OneToMany(mappedBy = "account",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account",fetch = FetchType.LAZY,cascade = [CascadeType.ALL])
     val transaction: Set<Transaction> = HashSet()
 
 ){
